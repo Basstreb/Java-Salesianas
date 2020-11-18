@@ -1,5 +1,7 @@
 package ejercicio_class;
 
+import java.util.Scanner;
+
 public class Vehiculo {
 	
 	//Attributes
@@ -10,6 +12,9 @@ public class Vehiculo {
 	//Constructors
 	Vehiculo(String modelo) {
 		this.modelo = modelo;
+	}
+	
+	Vehiculo() {
 	}
 	
 	//Methods
@@ -40,6 +45,9 @@ public class Vehiculo {
 	
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("unused")
+		Scanner teclado = new Scanner(System.in);
+		
 		Vehiculo coche1 = new Vehiculo("Mustang");
 		coche1.setPotencia(550);
 		coche1.setTraccion(false);
@@ -48,7 +56,18 @@ public class Vehiculo {
 		coche2.setPotencia(80);
 		coche2.setTraccion(true);
 		
+		System.out.println("Indique el modelo del coche");
+		Vehiculo coche3 = new Vehiculo(teclado.nextLine());
+		
+		System.out.println("Indique la cantidad de CV que tiene");
+		coche3.setPotencia(teclado.nextDouble());
+		
+		System.out.println("Indique con un Si o un No si tiene traccion a las 4 Ruedas");
+		String rueda = teclado.nextLine();
+		
 		coche1.imprimir();
 		coche2.imprimir();
+		
+		
 	}
 }
