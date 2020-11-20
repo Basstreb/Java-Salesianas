@@ -45,7 +45,7 @@ public class Vehiculo {
 	
 	public static void main(String[] args) {
 		
-		@SuppressWarnings("unused")
+		@SuppressWarnings({ "unused", "resource" })
 		Scanner teclado = new Scanner(System.in);
 		
 		Vehiculo coche1 = new Vehiculo("Mustang");
@@ -65,8 +65,16 @@ public class Vehiculo {
 		System.out.println("Indique con un Si o un No si tiene traccion a las 4 Ruedas");
 		String rueda = teclado.nextLine();
 		
+//		if (rueda.equals("Si")) {
+//			coche3.setTraccion(true);
+//		}
+//		else if (rueda.equals("No")) {
+//			coche3.setTraccion(false);
+//		}
+		
 		coche1.imprimir();
 		coche2.imprimir();
+		coche3.imprimir();
 		
 		
 	}

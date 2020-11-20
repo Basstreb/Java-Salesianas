@@ -1,5 +1,7 @@
 package ejercicio_class;
 
+import java.util.Scanner;
+
 public class Rectangulo {
 	
 	//Attributes
@@ -91,9 +93,17 @@ public class Rectangulo {
 		this.base = base;
 	}
 	
-//	public float Superficie() {
-//		return (this.d.getX() - this.a.getX())*(this.b.getY() - this.a.getY());
-//	}
+	public float Superficie() {
+		//return (this.d.getX() - this.a.getX())*(this.b.getY() - this.a.getY());
+		
+		float cuadradob = (float) (Math.pow(puntos[3].getX() - puntos[0].getX(), 2) + Math.pow(puntos[3].getY() - puntos[0].getY(), 2));
+		float cuadradoa = (float) (Math.pow(puntos[1].getX() - puntos[0].getX(), 2) + Math.pow(puntos[1].getY() - puntos[0].getY(), 2));
+		float raizb = (float) Math.sqrt(cuadradob);
+		float raiza = (float) Math.sqrt(cuadradoa);
+		return raiza * raizb;
+		
+		//return (puntos[3].getX() - puntos[0].getX())*(puntos[1].getY() - puntos[0].getY());
+	}
 	
 	public static void main(String[] args) {
 		
@@ -108,15 +118,27 @@ public class Rectangulo {
 //		System.out.println(rectangulo1.Superficie() + "\n" + rectangulo2.Superficie());
 //		//System.out.println(rectangulo2.Superficie());
 		
-		Punto a = new Punto(3, 6);
-		Punto b = new Punto(3, 8);
-		Punto c = new Punto(8, 8);
-		Punto d = new Punto(8, 6);
+		@SuppressWarnings("resource")
+		Scanner num = new Scanner(System.in);
+		
+		System.out.println("Introduzca primero la X del primer punto y luego la Y");
+		Punto a = new Punto(num.nextInt(), num.nextInt());
+		
+		System.out.println("Introduzca primero la X del segundo punto y luego la Y");
+		Punto b = new Punto(num.nextInt(), num.nextInt());
+		
+		System.out.println("Introduzca primero la X del tercer punto y luego la Y");
+		Punto c = new Punto(num.nextInt(), num.nextInt());
+		
+		System.out.println("Introduzca primero la X del último punto y luego la Y");
+		Punto d = new Punto(num.nextInt(), num.nextInt());
 		
 		Punto [] puntosr = {a,b,c,d};
 		
 		Rectangulo r1 = new Rectangulo();
 		r1.setPuntos(puntosr);
+		
+		System.out.println(r1.Superficie());
 		//Continuar expandiendo
 		
 	}
