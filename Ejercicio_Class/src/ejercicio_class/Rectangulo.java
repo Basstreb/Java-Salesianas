@@ -130,7 +130,7 @@ public class Rectangulo {
 		System.out.println("Introduzca primero la X del tercer punto y luego la Y");
 		Punto c = new Punto(num.nextInt(), num.nextInt());
 		
-		System.out.println("Introduzca primero la X del Ãºltimo punto y luego la Y");
+		System.out.println("Introduzca primero la X del último punto y luego la Y");
 		Punto d = new Punto(num.nextInt(), num.nextInt());
 		
 		Punto [] puntosr = {a,b,c,d};
