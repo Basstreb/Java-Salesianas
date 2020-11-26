@@ -7,14 +7,9 @@ public class Mago extends Personaje {
 	
 	
 	//Constructores
-	Mago(){
-		this.energia = 100;
-	}
-	
 	Mago(String nombre, String poder){
-		this.nombre = nombre;
+		super(nombre, 100);
 		this.poder = poder;
-		this.energia = 100;
 	}
 
 	//Metodos

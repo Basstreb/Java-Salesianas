@@ -2,16 +2,17 @@ package videojuego;
 
 public class Personaje {
 
+	//Atributos
 	String nombre;
 	protected int energia;
-
-	Personaje() {}
 	
-	Personaje(String nombre, int energia){
+	//Constructor
+	public Personaje(String nombre, int energia){
 		this.nombre = nombre;
 		this.energia = energia;
 	}
 	
+	//Metodos
 	public String getNombre() {
 		return nombre;
 	}

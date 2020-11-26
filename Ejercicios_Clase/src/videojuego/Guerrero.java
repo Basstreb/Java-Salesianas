@@ -6,13 +6,8 @@ public class Guerrero extends Personaje {
 	private String arma;
 	
 	//Constructores
-	public Guerrero(){
-
-	}
-	
 	Guerrero(String nombre, int energia, String arma){
-		this.nombre = nombre;
-		this.energia = energia;
+		super(nombre, energia);
 		this.arma = arma;	
 	}
 
@@ -26,7 +21,7 @@ public class Guerrero extends Personaje {
 	}
 	
 	public String combatir(int gastoe) {
-		this.energia -= gastoe;
+		setEnergia(-gastoe);
 		return "Has atacado con " + this.arma + " y la cantidad de energia gastada es de " + gastoe +
 				" la energia restante es de " + this.energia;
 	}
