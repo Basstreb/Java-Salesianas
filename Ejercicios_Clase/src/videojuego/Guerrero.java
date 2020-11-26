@@ -6,12 +6,14 @@ public class Guerrero extends Personaje {
 	private String arma;
 	
 	//Constructores
-	Guerrero(){	}
+	public Guerrero(){
+
+	}
 	
 	Guerrero(String nombre, int energia, String arma){
 		this.nombre = nombre;
 		this.energia = energia;
-		this.arma = arma;
+		this.arma = arma;	
 	}
 
 	//Metodos
