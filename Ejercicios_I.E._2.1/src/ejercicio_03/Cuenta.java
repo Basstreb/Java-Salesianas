@@ -1,29 +1,32 @@
 package ejercicio_03;
 
 public class Cuenta {
-	
-	//Attributes
-	private long cuenta;
+
+	// Attributes
+	private long cuenta ;
 	private long dni;
 	private int saldo;
 	private int interes;
 	
-	Cuenta(){
-		this.cuenta = 35844684864968L;
-		this.dni = 0;
-		this.saldo = 0;
-		this.interes = 0;
+	private static long numeroCuenta = 100001L;
+	
+	public static long getNumeroCuenta() {
+		return numeroCuenta;
+	}
+
+	Cuenta() {
+		cuenta = ++numeroCuenta;
 	}
 	
-	Cuenta(long dni, int saldo, int interes){
-		this.cuenta = 35844684864968L;
+	Cuenta(long dni, int saldo, int interes) {
 		this.dni = dni;
 		this.saldo = saldo;
 		this.interes = interes;
+		this.cuenta = ++numeroCuenta;
 	}
 
-	public long getCuenta() {
-		return cuenta;
+	public void setCuenta(long cuenta) {
+		this.cuenta = cuenta;
 	}
 
 	public long getDni() {
@@ -49,34 +52,25 @@ public class Cuenta {
 	public void setInteres(int interes) {
 		this.interes = interes;
 	}
-	
+
 	public void actualizarSaldo() {
-		this.saldo = this.saldo + (interes/365);
+		this.saldo = this.saldo + (interes / 365);
 	}
-	
+
 	public void ingresar(double ingresar) {
-		this.saldo = (int)(this.saldo + ingresar);
+		this.saldo = (int) (this.saldo + ingresar);
 	}
-	
+
 	public void retirar(double retirar) {
-		if(this.saldo>retirar) {
-			this.saldo = (int)(this.saldo - retirar);
-		}
-		else {
+		if (this.saldo > retirar) {
+			this.saldo = (int) (this.saldo - retirar);
+		} else {
 			System.out.println("No hay dinero suficiente para retirar.");
 		}
-		
 	}
-	
-	public static void main(String[] args) {
-		
-		Cuenta cuenta = new Cuenta(77847769L, 50000, 7300);
-		
-		System.out.println("La cuenta es " + cuenta.getCuenta() + "\nEl dni es " + cuenta.getDni());
-		System.out.println("El saldo previo a calcular intereses es " + cuenta.getSaldo());
-		
-		cuenta.actualizarSaldo();
-		System.out.println("Y tas calcular el interes es de " + cuenta.getSaldo());
-		
+
+	public String datos() {
+		return "El numero de cuenta es: " + this.cuenta + "\nEl DNI del cliente es: " + this.dni
+				+ "\nEl saldo actual es: " + this.saldo + "€\nEl interes anual sera de: " + this.interes + "€";
 	}
 }
