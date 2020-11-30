@@ -3,10 +3,14 @@ package ejercicio_16;
 public class Personaje {
 
 	//Atributos
-	String nombre;
+	protected String nombre;
 	protected int energia;
 	
-	//Constructor
+	/**
+	 * Constructor
+	 * @param nombre
+	 * @param energia
+	 */
 	public Personaje(String nombre, int energia){
 		this.nombre = nombre;
 		this.energia = energia;
@@ -23,10 +27,14 @@ public class Personaje {
 		return energia;
 	}
 	public void setEnergia(int energia) {
-		this.energia += energia;
+		this.energia = energia;
 	}
 	
-	public void alimentarse(int alim) {
-		this.energia += alim;
+	/**
+	 * Metodo para aumentar la energia
+	 * @param energia
+	 */
+	public void alimentarse(int energia) {
+		this.energia += energia;
 	}
 }

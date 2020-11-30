@@ -1,18 +1,23 @@
 package ejercicio_16;
 
 public class Mago extends Personaje {
-	
-	//Atributos
+
+	// Atributos
 	private String poder;
-	
-	
-	//Constructores
-	Mago(String nombre, String poder){
+
+	/**
+	 * Constructor heredado que establece la energia del mago en 100 y ademas
+	 * recibir el nombre y su poder
+	 * 
+	 * @param nombre
+	 * @param poder
+	 */
+	Mago(String nombre, String poder) {
 		super(nombre, 100);
 		this.poder = poder;
 	}
 
-	//Metodos
+	// Metodos
 	public String getPoder() {
 		return poder;
 	}
@@ -20,10 +25,17 @@ public class Mago extends Personaje {
 	public void setPoder(String poder) {
 		this.poder = poder;
 	}
-	
-	public String encantar () {
+
+	/**
+	 * Metodo de ataque del mago que retorna el ataque realizado. Todos sus ataques
+	 * siempre gastan 2 de energia.
+	 * 
+	 * @return Accion realiazada por el mago
+	 */
+	public String encantar() {
 		this.energia -= 2;
-		return "La energia restante es de " + this.energia + " de poder de " + this.poder;
+		return "El mago " + nombre + " lanza su conjuro y gasta 2 de energia, la energia restante es de "
+				+ this.energia;
 	}
-	
+
 }
