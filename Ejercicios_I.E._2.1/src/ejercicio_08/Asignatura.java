@@ -9,6 +9,14 @@ public class Asignatura {
 		nombreAsignatura = a;
 		nota = n;
 	}
+	
+	public String getNombreAsignatura() {
+		return nombreAsignatura;
+	}
+
+	public void setNombreAsignatura(String nombreAsignatura) {
+		this.nombreAsignatura = nombreAsignatura;
+	}
 
 	public float getNota() {
 		return nota;
