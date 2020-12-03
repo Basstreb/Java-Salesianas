@@ -1,6 +1,6 @@
 package ejercicio_05;
 
-public class Empleado {
+public class Empleado implements Cloneable {
 
 	// Atributos
 	private String nif;
@@ -13,6 +13,7 @@ public class Empleado {
 	private float pagoHExtra;
 	private float sueldoBruto;
 	private float retencion;
+	private float sueldoNeto;
 	
 	
 	// Constructores
@@ -101,8 +102,28 @@ public class Empleado {
 			retencion = sueldoBruto * ((irpf-(1*this.nHijos))/100);
 		}
 		
+		sueldoNeto = sueldoBruto - retencion;
 		System.out.println("La retencion es de " + retencion + "€");
 	}
+
+	public String printIn() {
+		return "Empleado [nif=" + nif + ", casado=" + casado + ", nHijos=" + nHijos + "]";
+	}
+
+	public String printAll() {
+		return "Empleado [nif=" + nif + ", sueldoBase=" + sueldoBase + ", horaExtra=" + horaExtra + ", irpf=" + irpf
+				+ ", casado=" + casado + ", nHijos=" + nHijos + ", pagoHExtra=" + pagoHExtra + ", sueldoBruto="
+				+ sueldoBruto + ", retencion=" + retencion + ", sueldoNeto=" + sueldoNeto + "]";
+	}
 	
+	public Empleado copia() {
+		Empleado clon = null;
+		try {
+			clon = (Empleado) super.clone();
+		} catch (CloneNotSupportedException ex) {
+			System.out.println("Error al duplicar");
+		}
+		return clon;
+	}
 	
 }
