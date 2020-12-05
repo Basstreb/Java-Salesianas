@@ -11,11 +11,11 @@ public class Test {
 		System.out.println("Numero de coches atendidos: " + g.getNumCochesAtendidos());
 
 		if (!g.aceptarCoche(c1, "Pinchazo de una rueda")) {
-			System.out.println("Ya están atendiendo a otro coche");
+			System.out.println("Ya estan atendiendo a otro coche");
 		}
 
 		if (!g.aceptarCoche(c1, "Se ha quedado sin gasolina")) {
-			System.out.println("Ya están atendiendo a a otro coche y no van a coger mas coches");
+			System.out.println("Ya estan atendiendo a a otro coche y no van a coger mas coches");
 		}
 
 		g.devolverCoche();
@@ -38,7 +38,7 @@ public class Test {
 			g.devolverCoche();
 		}
 		
-		System.out.println("Numero de ocches atendidos: " + g.getNumCochesAtendidos());
+		System.out.println("Numero de coches atendidos: " + g.getNumCochesAtendidos());
 		System.out.println(" Coche 1 Averia " + c1.getPrecioaveria() + " Aceite " + c1.getMotor().getAceite());
 		System.out.println(" Coche 2 Averia " + c2.getPrecioaveria() + " Aceite " + c2.getMotor().getAceite());
 	}
