@@ -7,19 +7,10 @@ public class Test {
 		/**
 		 * Creamos dos arrays uno para los alumnos y otro para las asignaturas
 		 */
-		Alumno[] alumno = new Alumno[3];
-		Asignatura[] asignaturas = new Asignatura[6];
-
-		alumno[0] = new Alumno("Pedro", 24);
-		alumno[1] = new Alumno("Jorge", 19);
-		alumno[2] = new Alumno("Luis", 30);
-
-		asignaturas[0] = new Asignatura("Programacion", 0);
-		asignaturas[1] = new Asignatura("Sistemas Informaticos", 0);
-		asignaturas[2] = new Asignatura("Entornos de Desarrollo", 0);
-		asignaturas[3] = new Asignatura("Lenguaje de Marcas", 0);
-		asignaturas[4] = new Asignatura("Base de Datos", 0);
-		asignaturas[5] = new Asignatura("Fol", 0);
+		Alumno[] alumno = { new Alumno("Pedro", 24), new Alumno("Jorge", 19), new Alumno("Luis", 30) };
+		Asignatura[] asignaturas = { new Asignatura("Programacion", 0), new Asignatura("Sistemas Informaticos", 0),
+				new Asignatura("Entornos de Desarrollo", 0), new Asignatura("Lenguaje de Marcas", 0),
+				new Asignatura("Base de Datos", 0), new Asignatura("Fol", 0) };
 
 		for (int i = 0; i < alumno.length; i++) {
 
