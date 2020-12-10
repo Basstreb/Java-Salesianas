@@ -16,6 +16,7 @@ public class Empleado implements Cloneable {
 	private boolean casado;
 	private int nHijos;
 
+	//Variables extra para los calculos
 	private float pagoHExtra;
 	private float sueldoBruto;
 	private float retencion;

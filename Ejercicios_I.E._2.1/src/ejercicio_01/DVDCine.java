@@ -10,6 +10,7 @@ package ejercicio_01;
 
 public class DVDCine {
 
+	//Atributos
 	private String titulo;
 	private String director;
 	private String actores;

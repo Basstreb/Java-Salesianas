@@ -1,7 +1,7 @@
 package ejercicio_03;
 
 /**
- * Clase cuenta que recoge los atritos y uno de ellos es un static
+ * Clase cuenta que recoge los atributos y uno de ellos es un static
  * 
  * @author Dani
  *
@@ -14,11 +14,8 @@ public class Cuenta {
 	private double saldo;
 	private double interes;
 
+	// Static que almacena la consecución de cuentas creadas
 	private static long numeroCuenta = 100000L;
-
-	public static long getNumeroCuenta() {
-		return numeroCuenta;
-	}
 
 	/**
 	 * Constructor que solo actualiza el numero de la cuenta
@@ -67,6 +64,10 @@ public class Cuenta {
 
 	public void setInteres(double interes) {
 		this.interes = interes;
+	}
+
+	public static long getNumeroCuenta() {
+		return numeroCuenta;
 	}
 
 	/**

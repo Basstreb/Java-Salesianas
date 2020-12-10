@@ -6,26 +6,48 @@ public class MainGestionPlaza {
 
 	private static int num;
 	private static String texto;
+	private static boolean check;
 
+	/**
+	 * Metodo para realizar los trycatch de un int para mayor limpieza del Main
+	 * 
+	 * @return
+	 */
 	public static int tryCatchInt() {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		try {
-			MainGestionPlaza.num = keyboard.nextInt();
-		} catch (Exception ex) {
-			System.out.println("No ha introducido un valor valido.");
-		}
+
+		do {
+			try {
+				check = false;
+				MainGestionPlaza.num = keyboard.nextInt();
+			} catch (Exception ex) {
+				System.err.println("No ha introducido un valor valido.");
+				keyboard.next();
+				check = true;
+			}
+		} while (check);
+
 		return MainGestionPlaza.num;
 	}
 
+	/**
+	 * Metodo para realizar los trycatch de un String para mayor limpieza del Main
+	 * 
+	 * @return
+	 */
 	public static String tryCatchString() {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		try {
-			MainGestionPlaza.texto = keyboard.next();
-		} catch (Exception ex) {
-			System.out.println("No ha introducido un valor valido.");
-		}
+
+		do {
+			try {
+				MainGestionPlaza.texto = keyboard.next();
+			} catch (Exception ex) {
+				System.err.println("No ha introducido un valor valido.");
+			}
+		} while (check);
+
 		return MainGestionPlaza.texto;
 	}
 
@@ -33,9 +55,9 @@ public class MainGestionPlaza {
 
 		PlazaAparcamiento plaza1 = new PlazaAparcamiento(50);
 
-		plaza1.muestraMenu();
-
 		do {
+			plaza1.muestraMenu();
+			
 			switch (MainGestionPlaza.tryCatchInt()) {
 			case 1:
 				plaza1.aparcaCoche();

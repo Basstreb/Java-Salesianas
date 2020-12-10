@@ -12,6 +12,7 @@ public class Test {
 				new Asignatura("Entornos de Desarrollo", 0), new Asignatura("Lenguaje de Marcas", 0),
 				new Asignatura("Base de Datos", 0), new Asignatura("Fol", 0) };
 
+		//Ciclo for que chequea los alumnos y les asigna las asignaturas y un valor de notas aleatorio
 		for (int i = 0; i < alumno.length; i++) {
 
 			System.out.println(alumno[i].getNombre());

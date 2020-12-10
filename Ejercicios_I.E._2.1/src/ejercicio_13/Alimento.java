@@ -7,6 +7,7 @@ package ejercicio_13;
  */
 public class Alimento {
 
+	//Atributos
 	private String nombre;
 	private float lipidos;
 	private float hidratosCarbono;

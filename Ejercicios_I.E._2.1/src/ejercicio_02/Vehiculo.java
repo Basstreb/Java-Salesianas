@@ -9,6 +9,7 @@ public class Vehiculo {
 
 	/**
 	 * Constructor de la clase Vehiculo segun el modelo de este
+	 * 
 	 * @param modelo
 	 */
 	Vehiculo(String modelo) {
@@ -38,6 +39,7 @@ public class Vehiculo {
 
 	/**
 	 * Metodo que retorna si el vehiculo creado tiene traccion a las 4 ruedas o no
+	 * 
 	 * @return
 	 */
 	public String imprimir() {
