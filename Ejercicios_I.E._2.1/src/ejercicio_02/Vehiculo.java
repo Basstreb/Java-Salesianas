@@ -7,12 +7,12 @@ public class Vehiculo {
 	private double potencia;
 	private boolean cRueda;
 
-	// Constructors
+	/**
+	 * Constructor de la clase Vehiculo segun el modelo de este
+	 * @param modelo
+	 */
 	Vehiculo(String modelo) {
 		this.modelo = modelo;
-	}
-
-	Vehiculo() {
 	}
 
 	// Methods
@@ -36,13 +36,17 @@ public class Vehiculo {
 		this.cRueda = traccion;
 	}
 
-	public void imprimir() {
+	/**
+	 * Metodo que retorna si el vehiculo creado tiene traccion a las 4 ruedas o no
+	 * @return
+	 */
+	public String imprimir() {
 		if (cRueda) {
-			System.out.println("El modelo es " + modelo + " la potencia es de " + potencia
-					+ "CV y tiene traccion a las cuatro ruedas");
+			return "El modelo es " + modelo + " la potencia es de " + potencia
+					+ "CV y tiene traccion a las cuatro ruedas";
 		} else {
-			System.out.println("El modelo es " + modelo + " la potencia es de " + potencia
-					+ "CV y no tiene traccion a las cuatro ruedas");
+			return "El modelo es " + modelo + " la potencia es de " + potencia
+					+ "CV y no tiene traccion a las cuatro ruedas";
 		}
 	}
 }

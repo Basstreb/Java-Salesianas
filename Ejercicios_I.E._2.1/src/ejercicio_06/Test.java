@@ -18,7 +18,7 @@ public class Test {
 		 * Empleado que es sueldo.
 		 */
 		System.out.println(p1.datosPersonales());
-		System.out.println(em1.getPersona().datosPersonales());
+		System.out.println(em1.datosPersonales());
 		System.out.println(em1.imprimirSueldo());
 
 	}

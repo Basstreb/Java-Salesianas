@@ -5,7 +5,6 @@ package ejercicio_01;
  * Creamos una clase que recoja todos los datos necesarios de nuestro DVD.
  * 
  * @author Dani
- * @version 1.0
  *
  */
 
@@ -18,9 +17,15 @@ public class DVDCine {
 	private int duracion;
 	private String resumen;
 
-	DVDCine() {
-	}
-
+	/**
+	 * Constructor que no tiene en cuenta la creación de un resumen
+	 * 
+	 * @param titulo
+	 * @param director
+	 * @param actores
+	 * @param genero
+	 * @param duracion
+	 */
 	DVDCine(String titulo, String director, String actores, String genero, int duracion) {
 		this.titulo = titulo;
 		this.director = director;
@@ -29,6 +34,17 @@ public class DVDCine {
 		this.duracion = duracion;
 	}
 
+	/**
+	 * 
+	 * Constructor que añade ademas la posibilidad de escribir un resumen
+	 * 
+	 * @param titulo
+	 * @param director
+	 * @param actores
+	 * @param genero
+	 * @param duracion
+	 * @param resumen
+	 */
 	DVDCine(String titulo, String director, String actores, String genero, int duracion, String resumen) {
 		this.titulo = titulo;
 		this.director = director;
@@ -88,11 +104,16 @@ public class DVDCine {
 
 	/**
 	 * 
-	 * @return Devuelve información sobre la pelicula.
+	 * @return Devuelve información sobre la pelicula teniendo en cuenta si tiene o no resumen.
 	 */
 	public String muestraDVDCine() {
-		return this.titulo + " De: " + this.director + "\nCon: " + this.actores + "\n\n" + this.genero + " - "
-				+ this.duracion + " min" + "\n\nResumen: " + this.resumen;
+		if (resumen == null) {
+			return this.titulo + " De: " + this.director + "\nCon: " + this.actores + "\n\n" + this.genero + " - "
+					+ this.duracion + " min";
+		}else {
+			return this.titulo + " De: " + this.director + "\nCon: " + this.actores + "\n\n" + this.genero + " - "
+					+ this.duracion + " min" + "\n\nResumen: " + this.resumen;
+		}
 	}
 
 	/**

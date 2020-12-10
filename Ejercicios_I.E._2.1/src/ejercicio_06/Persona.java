@@ -1,14 +1,14 @@
 package ejercicio_06;
 
 /**
- * 
+ * Clase Persona que guarda nombre y edad de esta
  * @author Dani
  *
  */
 public class Persona {
 
-	private String nombre;
-	private int edad;
+	protected String nombre;
+	protected int edad;
 
 	/**
 	 * Constructor que define a la Persona

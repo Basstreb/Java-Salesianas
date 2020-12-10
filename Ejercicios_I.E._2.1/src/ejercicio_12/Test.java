@@ -1,40 +1,53 @@
 package ejercicio_12;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Test {
 
-	private Empleado empleado;
+	private static int num;
+	private static String texto;
 
-	public Test(String n, int ht, int th) {
-		empleado = new Empleado(n, ht, th);
+	public static int tryCatchInt() {
+		@SuppressWarnings("resource")
+		Scanner keyboard = new Scanner(System.in);
+		try {
+			Test.num = keyboard.nextInt();
+		} catch (InputMismatchException ex) {
+			System.out.println("Ha introducido un valor incorrecto, tendra que cambialo mas adelante.");
+		}
+		return Test.num;
 	}
 
-	public void sueldoBruto() {
-
-		int sueldoBruto = 0;
-
-		if (empleado.getHorasTrabajo() > 40) {
-			sueldoBruto = (int) ((empleado.getTarifaHora() * 40)
-					+ ((empleado.getHorasTrabajo() - 40) * empleado.getTarifaHora() * 1.5));
-		} else {
-			sueldoBruto = empleado.getHorasTrabajo() * empleado.getTarifaHora();
+	public static String tryCatchString() {
+		@SuppressWarnings("resource")
+		Scanner keyboard = new Scanner(System.in);
+		try {
+			Test.texto = keyboard.next();
+		} catch (Exception ex) {
+			System.out.println("No ha introducido un valor valido.");
 		}
-
-		System.out.println(
-				empleado.getNombre() + " trabajó " + empleado.getHorasTrabajo() + " horas, cobra " + empleado.getTarifaHora()
-						+ " euros la hora por lo que le corresponde un sueldo de " + sueldoBruto + " euros.");
-
+		return Test.texto;
 	}
 
 	public static void main(String[] args) {
 
-		Test empleado1 = new Test("Paco", 38, 10);
-		Test empleado2 = new Test("Olga", 60, 20);
-		Test empleado3 = new Test("Elena", 49, 18);
-		
+		System.out.println(
+				"Introduza los datos del primer empleado, nombre, horas de trabajo y cuanto cobra por estas.");
+		Empleado empleado1 = new Empleado(Test.tryCatchString(), Test.tryCatchInt(), Test.tryCatchInt());
+
+		System.out.println(
+				"Introduza los datos del segundo empleado, nombre, horas de trabajo y cuanto cobra por estas.");
+		Empleado empleado2 = new Empleado(Test.tryCatchString(), Test.tryCatchInt(), Test.tryCatchInt());
+
+		System.out.println(
+				"Introduza los datos del tercer empleado, nombre, horas de trabajo y cuanto cobra por estas.");
+		Empleado empleado3 = new Empleado(Test.tryCatchString(), Test.tryCatchInt(), Test.tryCatchInt());
+
 		empleado1.sueldoBruto();
 		empleado2.sueldoBruto();
 		empleado3.sueldoBruto();
-		
+
 	}
 
 }

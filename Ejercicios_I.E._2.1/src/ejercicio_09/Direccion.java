@@ -1,5 +1,11 @@
 package ejercicio_09;
 
+/**
+ * Clase Direccion que nos sirve para definir la direccion de un empleado
+ * 
+ * @author Dani
+ *
+ */
 public class Direccion {
 
 	private String calle;
@@ -7,6 +13,14 @@ public class Direccion {
 	private int piso;
 	private String ciudad;
 
+	/**
+	 * Constructor de la clase Direccion que incluye a todos los atributos
+	 * 
+	 * @param ca
+	 * @param nu
+	 * @param pi
+	 * @param ci
+	 */
 	public Direccion(String ca, int nu, int pi, String ci) {
 		calle = ca;
 		numero = nu;
@@ -14,6 +28,7 @@ public class Direccion {
 		ciudad = ci;
 	}
 
+	// Metodos Getters y Setters
 	public String getCalle() {
 		return calle;
 	}

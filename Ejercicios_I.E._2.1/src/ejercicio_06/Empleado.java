@@ -1,21 +1,26 @@
 package ejercicio_06;
 
-public class Empleado {
+/**
+ * Clase Empleado que hereda nombre y edad de Persona y ademas añade el sueldo
+ * 
+ * @author Dani
+ *
+ */
+public class Empleado extends Persona {
 
-	private Persona persona = null;
 	private float sueldo;
-	
-	Empleado (String n, int e, float s){
-		persona = new Persona(n, e);
-		sueldo = s;
-	}
-	
-	public Persona getPersona() {
-		return persona;
-	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	/**
+	 * Constructor que incluye el nombre y edad de la persona y ademas añade el
+	 * sueldo
+	 * 
+	 * @param n
+	 * @param e
+	 * @param s
+	 */
+	Empleado(String n, int e, float s) {
+		super(n, e);
+		sueldo = s;
 	}
 
 	public float getSueldo() {
@@ -25,8 +30,13 @@ public class Empleado {
 	public void setSueldo(float sueldo) {
 		this.sueldo = sueldo;
 	}
-	
+
+	/**
+	 * Metodo que retorna el sueldo del empleado y su nombre
+	 * 
+	 * @return
+	 */
 	public String imprimirSueldo() {
-		return "El sueldo de " + persona.getNombre() + " es de " + sueldo;
-	}	
+		return "El sueldo de " + nombre + " es de " + sueldo;
+	}
 }

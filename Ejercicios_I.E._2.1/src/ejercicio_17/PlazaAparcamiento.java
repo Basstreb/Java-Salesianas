@@ -7,6 +7,11 @@ public class PlazaAparcamiento {
 	private boolean plazaLibre;
 	private static int contCoches;
 
+	/**
+	 * Constructor que recibe el numero de la plaza.
+	 * 
+	 * @param np
+	 */
 	public PlazaAparcamiento(int np) {
 		numeroPlaza = np;
 		plazaLibre = true;
@@ -44,15 +49,23 @@ public class PlazaAparcamiento {
 		PlazaAparcamiento.contCoches = contCoches;
 	}
 
+	/**
+	 * Metodo que muestra el menu de nuestro programa
+	 */
 	public void muestraMenu() {
 		System.out.println(
 				"PLAZA APARCAMIENTO\n1.    Aparcar coche\n2.    Sacar coche\n3.    Ver coche aparcado\n4.    Salir aplicacion\nOPCION:");
 	}
 
+	/**
+	 * Metodo que aparca el coche y aumenta el contador
+	 */
 	public void aparcaCoche() {
 		if (plazaLibre) {
-			System.out.println("Introduzca primero la matricula del vehiculo sin letras, despues la marca y por ultimo el modelo.");
-			coche = new Coche(MainGestionPlaza.tryCatchInt(), MainGestionPlaza.tryCatchString(), MainGestionPlaza.tryCatchString());
+			System.out.println(
+					"Introduzca primero la matricula del vehiculo sin letras, despues la marca y por ultimo el modelo.");
+			coche = new Coche(MainGestionPlaza.tryCatchInt(), MainGestionPlaza.tryCatchString(),
+					MainGestionPlaza.tryCatchString());
 			plazaLibre = false;
 			System.out.println("EL COCHE SE HA APARCADO");
 			contCoches++;
@@ -61,6 +74,9 @@ public class PlazaAparcamiento {
 		}
 	}
 
+	/**
+	 * Metodo que saca el coche del aparcamiento
+	 */
 	public void sacarCoche() {
 		if (!plazaLibre) {
 			plazaLibre = true;
@@ -70,27 +86,33 @@ public class PlazaAparcamiento {
 		}
 	}
 
+	/**
+	 * Metodo que muestra si la plaza esta ocupada y si es asi decir que coche es
+	 */
 	public void mostrarCoche() {
 		if (!plazaLibre) {
 			System.out.println("En la plaza numero " + numeroPlaza + " esta aparcado el coche " + coche.getMarca()
 					+ " modelo " + coche.getModelo() + " con matricula " + coche.getMatricula());
-		}else {
+		} else {
 			System.out.println("LA PLAZA ESTA LIBRE");
 		}
 	}
-	
+
+	/**
+	 * Metodo que muestra el estado de la plaza
+	 */
 	public void estadoPlaza() {
 		if (!plazaLibre) {
 			System.out.println("LA PLAZA ESTA ACTUALMENTE OCUPADA");
 			if (contCoches == 1) {
 				System.out.println("Ha aparcado un total de " + contCoches + " coche.");
-			}else {
+			} else {
 				System.out.println("Han aparcado un total de " + contCoches + " coches.");
 			}
-		}else {
+		} else {
 			if (contCoches == 1) {
 				System.out.println("Ha aparcado un total de " + contCoches + " coche.");
-			}else {
+			} else {
 				System.out.println("Han aparcado un total de " + contCoches + " coches.");
 			}
 		}

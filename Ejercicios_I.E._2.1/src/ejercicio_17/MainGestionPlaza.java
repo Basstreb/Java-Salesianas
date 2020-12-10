@@ -17,7 +17,7 @@ public class MainGestionPlaza {
 		}
 		return MainGestionPlaza.num;
 	}
-	
+
 	public static String tryCatchString() {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);

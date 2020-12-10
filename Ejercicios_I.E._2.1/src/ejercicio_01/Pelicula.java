@@ -4,7 +4,7 @@ public class Pelicula {
 
 	public static void main(String[] args) {
 
-		DVDCine pelicula1 = new DVDCine("Origen (Inception)", "Christopher Nolan", "Leonardo DiCaprio y Ellen Page",
+		DVDCine pelicula1 = new DVDCine("Origen (Inception)", "Christopher Nolan", "Leonardo DiCaprio y Elliot Page",
 				"Thriller", 148);
 
 		System.out.println(pelicula1.muestraDVDCine());
@@ -14,7 +14,7 @@ public class Pelicula {
 
 		DVDCine pelicula2 = new DVDCine("Matrix", "Hermanas Wachowski", "Keanu Reeves y Laurence Fishburne", "Accion",
 				136,
-				"Un experto en computadoras descubre que su mundo es una simulación total creada con maliciosas intenciones por parte de la ciberinteligencia.");
+				"Un experto en computadoras descubre que su mundo es una simulacion total creada con maliciosas intenciones por parte de la ciberinteligencia.");
 		
 		System.out.println(" ");
 		System.out.println(pelicula2.muestraDVDCine());

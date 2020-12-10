@@ -6,7 +6,11 @@ public class Main {
 
 	private static int num;
 	private static float cuenta;
-		
+	
+	/**
+	 * Trycatch para los numeros int
+	 * @return
+	 */
 	public static int tryCatchInt() {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
@@ -18,6 +22,10 @@ public class Main {
 		return Main.num;
 	}
 
+	/**
+	 * Trycatch para los numeros float
+	 * @return
+	 */
 	public static float tryCatchFloat() {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
@@ -32,20 +40,19 @@ public class Main {
 	public static void main(String[] args) {
 
 		boolean controlCuentaCreada = false;
-		boolean vacia = false;
-		boolean llena = false;
+		boolean tipo = false;
 
 		Cuenta[] cuentas = new Cuenta[2];
 
-		System.out.println(
-				"1.- Crear cuenta vacía.\n2.- Crear cuenta con saldo inicial.\n3.- Ingresar dinero.\n4.- Sacar dinero.\n5.- Ver saldo.\n6.- Salir.");
-
 		do {
+			System.out.println(
+					"1.- Crear cuenta vacía.\n2.- Crear cuenta con saldo inicial.\n3.- Ingresar dinero.\n4.- Sacar dinero.\n5.- Ver saldo.\n6.- Salir.");
+			
 			switch (Main.tryCatchInt()) {
 			case 1:
 				if (!controlCuentaCreada) {
 					controlCuentaCreada = true;
-					vacia = true;
+					tipo = false;
 					cuentas[0] = new Cuenta();
 					System.out.println("Ha creado usted una cuenta vacia");
 				} else {
@@ -55,7 +62,7 @@ public class Main {
 			case 2:
 				if (!controlCuentaCreada) {
 					controlCuentaCreada = true;
-					llena = true;
+					tipo = true;
 					cuentas[1] = new Cuenta(Main.tryCatchFloat());
 					System.out.println("Ha creado una cuenta con " + cuentas[1].getSaldo() + "€.");
 				} else {
@@ -66,11 +73,11 @@ public class Main {
 				if (!controlCuentaCreada) {
 					System.out.println("Debe crear una cuenta antes de ingresar dinero.");
 				} else {
-					if (llena) {
+					if (tipo) {
 						System.out.println();
 						cuentas[1].ingresar(Main.tryCatchFloat());
 						System.out.println("Ha ingresado dinero satisfactoriamente");
-					} else if (vacia) {
+					} else {
 						cuentas[0].ingresar(Main.tryCatchFloat());
 						System.out.println("Ha ingresado dinero satisfactoriamente");
 					}
@@ -80,10 +87,10 @@ public class Main {
 				if (!controlCuentaCreada) {
 					System.out.println("Debe crear una cuenta antes de ingresar dinero.");
 				} else {
-					if (llena) {
+					if (tipo) {
 						cuentas[1].extraer(Main.tryCatchFloat());
 						System.out.println("Ha retirado dinero satisfactoriamente");
-					} else if (vacia) {
+					} else {
 						cuentas[0].extraer(Main.tryCatchFloat());
 						System.out.println("Ha retirado dinero satisfactoriamente");
 					}
@@ -93,14 +100,15 @@ public class Main {
 				if (!controlCuentaCreada) {
 					System.out.println("Debe crear una cuenta antes de ver el saldo disponible.");
 				} else {
-					if (llena) {
+					if (tipo) {
 						System.out.println(cuentas[1].getSaldo());
-					} else if (vacia) {
+					} else {
 						System.out.println(cuentas[0].getSaldo());
 					}
 				}
 				break;
 			}
+			System.out.println("");
 		} while (Main.num != 6);
 
 	}
