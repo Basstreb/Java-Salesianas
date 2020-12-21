@@ -1,5 +1,10 @@
 package ejercicio_13;
 
+/**
+ * Clase Test para testear la clase Alimentos
+ * @author Dani
+ *
+ */
 public class Test {
 
 	public static void main(String[] args) {

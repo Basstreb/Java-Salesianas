@@ -1,5 +1,10 @@
 package ejercicio_16;
 
+/**
+ * Clase Guerrero que hereda de personaje y añade el arma
+ * @author Dani
+ *
+ */
 public class Guerrero extends Personaje {
 
 	/**

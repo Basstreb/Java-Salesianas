@@ -1,5 +1,10 @@
 package ejercicio_02;
 
+/**
+ * Clase que recoje los datos, construtcores y metodos de vehiculos
+ * @author Dani
+ *
+ */
 public class Vehiculo {
 
 	// Attributes

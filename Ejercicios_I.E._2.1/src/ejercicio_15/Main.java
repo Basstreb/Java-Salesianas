@@ -2,6 +2,11 @@ package ejercicio_15;
 
 import java.util.Scanner;
 
+/**
+ * Clase Main de Cuenta donde añadimos Try Catch
+ * @author Dani
+ *
+ */
 public class Main {
 
 	// Atributos creados para los metodos trycatch

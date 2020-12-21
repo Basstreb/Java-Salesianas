@@ -1,5 +1,10 @@
 package ejercicio_04;
 
+/**
+ * Clase main de Cafetera
+ * @author Dani
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {

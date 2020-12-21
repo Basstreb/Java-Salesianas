@@ -1,5 +1,10 @@
 package ejercicio_06;
 
+/**
+ * Clase Test para Empleado y Persona
+ * @author Dani
+ *
+ */
 public class Test {
 
 	public static void main(String[] args) {

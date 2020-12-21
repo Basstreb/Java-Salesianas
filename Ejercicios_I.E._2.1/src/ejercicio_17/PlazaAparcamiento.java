@@ -1,5 +1,10 @@
 package ejercicio_17;
 
+/**
+ * Clase Plaza de aparcamientoq ue recoje el numero de plaza y cuenta los coches que aparcan en ella
+ * @author Dani
+ *
+ */
 public class PlazaAparcamiento {
 
 	private int numeroPlaza;

@@ -1,5 +1,10 @@
 package ejercicio_16;
 
+/**
+ * Clase mago que hereda de persona y añade poderes
+ * @author Dani
+ *
+ */
 public class Mago extends Personaje {
 
 	// Atributos

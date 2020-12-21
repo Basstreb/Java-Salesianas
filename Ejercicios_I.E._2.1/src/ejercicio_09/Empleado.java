@@ -24,9 +24,9 @@ public class Empleado {
 	 * Constructor de la clase empreado que incluye una direccion que añadiremos mas
 	 * tarde.
 	 * 
-	 * @param n
-	 * @param s
-	 * @param dir
+	 * @param n nombre
+	 * @param s saldo
+	 * @param dir direccion
 	 */
 	public Empleado(String n, int s, Direccion dir) {
 		nombre = n;
@@ -63,7 +63,6 @@ public class Empleado {
 	/**
 	 * Metodo que nos muestra la informacion completa del empleado
 	 * 
-	 * @param num
 	 */
 	public void muestraEmpleado() {
 		System.out.println("EMPLEADO " + numEmpleado);
