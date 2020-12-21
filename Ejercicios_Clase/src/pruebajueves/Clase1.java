@@ -2,8 +2,8 @@ package pruebajueves;
 
 public class Clase1 {
 	
-	protected int atr1;
-	protected String atr2;
+	private int atr1;
+	private String atr2;
  
 	public Clase1 (int a, String b){
 		atr1=a;
@@ -13,6 +13,19 @@ public class Clase1 {
 	public Clase1(){
 		this(-1,"vacío");
 	}
-
 	
+	//Tenemos dos opciones
+	public int getAtr1() {
+		return atr1;
+	}
+	
+	public String getAtr2() {
+		return atr2;
+	}
+	
+	//Y esta otra
+	
+	public String toString() {
+		return "Atributo 1 = " + atr1 + "\nAtributo 2 = " + atr2;
+	}
 }

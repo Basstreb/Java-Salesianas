@@ -10,7 +10,12 @@ public class Clase2  extends Clase1{
  
 	//Método que retorna el valor de los atributos a, b y c.
 	public String toString(){
-		return "Atributo 1 = " + atr1 + "\nAtributo 2 = " + atr2 + "\nAtributo 3 = " + atr3;
+		return "Atributo 1 = " + getAtr1() + "\nAtributo 2 = " + getAtr2() + "\nAtributo 3 = " + atr3;
+	}
+	
+	//Otra opcion es
+	public String toString2() {
+		return super.toString() +  "\nAtributo 3 = " + atr3;
 	}
 
 }
