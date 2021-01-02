@@ -17,22 +17,22 @@ public class Ejercicio_21 {
 
 		System.out.println("Esta es la matriz A");
 		for (int i = 0; i < A.length; i++) {
-			for (int j = 0; j < A[i].length; j++) {
+			for (int j = 0; j < A.length; j++) {
 				System.out.print(A[i][j] + " ");
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("");
-		
+
 		System.out.println("Esta es la matriz B");
 		for (int i = 0; i < B.length; i++) {
-			for (int j = 0; j < B[i].length; j++) {
+			for (int j = 0; j < B.length; j++) {
 				System.out.print(B[i][j] + " ");
 			}
 			System.out.println();
 		}
-		
+
 		for (int i = 0; i < A.length; i++) {
 			for (int j = 0; j < A.length; j++) {
 				if (B[i][j] > A[i][j]) {
@@ -42,22 +42,22 @@ public class Ejercicio_21 {
 				}
 			}
 		}
-		
+
 		System.out.println("");
-		
+
 		System.out.println("Esta es la matriz A con los valores cambiados");
 		for (int i = 0; i < A.length; i++) {
-			for (int j = 0; j < A[i].length; j++) {
+			for (int j = 0; j < A.length; j++) {
 				System.out.print(A[i][j] + " ");
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("");
-		
+
 		System.out.println("Esta es la matriz B con los valores cambiados");
 		for (int i = 0; i < B.length; i++) {
-			for (int j = 0; j < B[i].length; j++) {
+			for (int j = 0; j < B.length; j++) {
 				System.out.print(B[i][j] + " ");
 			}
 			System.out.println();
