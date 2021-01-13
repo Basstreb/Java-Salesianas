@@ -27,7 +27,7 @@ public class Ejercicio_15 {
 
 	public static void main(String[] args) {
 
-		Integer[] array = new Integer[20];
+		Integer[] array = new Integer[5];
 
 		for (int i = 0; i < array.length; i++) {
 

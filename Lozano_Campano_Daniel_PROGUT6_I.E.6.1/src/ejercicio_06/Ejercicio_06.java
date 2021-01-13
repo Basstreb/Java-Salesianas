@@ -33,6 +33,7 @@ public class Ejercicio_06 {
 
 		System.out.println(java.util.Arrays.toString(vector));
 
+		System.out.println("Indique que numero desea buscar en la secuencia");
 		Ejercicio_06.tryCatchInt();
 
 		for (int i = 0; i < vector.length; i++) {

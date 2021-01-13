@@ -23,8 +23,8 @@ public class Ejercicio_18 {
 			}
 		}
 
-		System.out.println(suma);
-		System.out.println(mayor);
+		System.out.println("La suma de los elementos que ocupan posiciones pares es " + suma);
+		System.out.println("Y el mayor numero que ocupa posicones impares es " + mayor);
 
 	}
 
