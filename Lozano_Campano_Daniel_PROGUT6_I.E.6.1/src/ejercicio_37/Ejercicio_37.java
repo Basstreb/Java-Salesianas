@@ -2,6 +2,7 @@ package ejercicio_37;
 
 public class Ejercicio_37 {
 
+	//Metodo que nos imprime cualquier matriz de numeros enteros
 	public static void imprimirMatriz(int matriz[][]) {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
@@ -11,6 +12,10 @@ public class Ejercicio_37 {
 		}
 	}
 
+	/**
+	 * Metodo que nos permite llenar la matriz con numeros aleatorios
+	 * @param matriz
+	 */
 	public static void llenarMatriz(int matriz[][]) {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
@@ -22,6 +27,10 @@ public class Ejercicio_37 {
 
 	public static void main(String[] args) {
 
+		/**
+		 * Se recomienda no poner dimensiones mayor de 4, dado que difilcultara las
+		 * condiciones de los numero silla
+		 */
 		int dim = 3;
 		int[][] matriz = new int[dim][dim];
 		llenarMatriz(matriz);
@@ -57,11 +66,19 @@ public class Ejercicio_37 {
 				}
 			}
 
-			System.out.println(mayor);
-			System.out.println(silla);
+			for (int i = 0; i < matriz.length; i++) {
+				if (matriz[i][columna] == mayor && silla == true) {
+					System.out.println("El numero silla es el " + mayor + " y se encuentra en la posicion [" + i + ","
+							+ columna + "]");
+				}
+			}
+
+//			System.out.println(mayor); Con esto verificamos cuales son los numeros mayores de cada fila y si son o no punto de silla.
+//			System.out.println(silla);
 			columna++;
 		}
 
-		imprimirMatriz(matriz);
+		System.out.println();
+		imprimirMatriz(matriz); // Con esto podemos mostrar la matriz
 	}
 }

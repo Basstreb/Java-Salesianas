@@ -1,6 +1,29 @@
 package ejercicio_39;
 
+import java.util.Scanner;
+
 public class Ejercicio_39 {
+
+	private static int num;
+	private static boolean check;
+
+	private static int tryCatchInt() {
+		@SuppressWarnings("resource")
+		Scanner keyboard = new Scanner(System.in);
+
+		do {
+			try {
+				check = false;
+				Ejercicio_39.num = keyboard.nextInt();
+			} catch (Exception ex) {
+				System.err.println("No ha introducido un valor valido.");
+				keyboard.next();
+				check = true;
+			}
+		} while (check);
+
+		return Ejercicio_39.num;
+	}
 
 	public static int fibonacci(int i) {
 		if (i > 1) {
@@ -18,10 +41,10 @@ public class Ejercicio_39 {
 	public static void main(String[] args) {
 
 		System.out.println("Cuantos numero quiere sacar de la serie de Fibonacci");
-		for (int i = 0; i <= 20; i++) {
+		int fibo = tryCatchInt();
+		for (int i = 0; i < fibo; i++) {
 			System.out.println(fibonacci(i));
 		}
-
 	}
 
 }
