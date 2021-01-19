@@ -81,7 +81,7 @@ public class Metodos {
 	}
 
 	/**
-	 * Metodo java de ordenación por selección
+	 * Metodo java de ordenaciï¿½n por selecciï¿½n
 	 * 
 	 * @param A
 	 */
@@ -89,9 +89,9 @@ public class Metodos {
 		int menor, pos, tmp;
 		for (int i = 0; i < A.length - 1; i++) { // tomamos como menor el primero
 			menor = A[i]; // de los elementos que quedan por ordenar
-			pos = i; // y guardamos su posición
+			pos = i; // y guardamos su posiciï¿½n
 			for (int j = i + 1; j < A.length; j++) { // buscamos en el resto
-				if (A[j] < menor) { // del array algún elemento
+				if (A[j] < menor) { // del array algï¿½n elemento
 					menor = A[j]; // menor que el actual
 					pos = j;
 				}
@@ -105,7 +105,7 @@ public class Metodos {
 	}
 
 	/**
-	 * Metodo java de ordenación quicksort
+	 * Metodo java de ordenaciï¿½n quicksort
 	 * 
 	 * @param A
 	 * @param izq
@@ -113,10 +113,10 @@ public class Metodos {
 	 */
 	public static void quicksort(int[] A, int izq, int der) {
 		int pivote = A[izq]; // tomamos primer elemento como pivote
-		int i = izq; // i realiza la búsqueda de izquierda a derecha
-		int j = der; // j realiza la búsqueda de derecha a izquierda
+		int i = izq; // i realiza la bï¿½squeda de izquierda a derecha
+		int j = der; // j realiza la bï¿½squeda de derecha a izquierda
 		int aux;
-		while (i < j) { // mientras no se crucen las búsquedas
+		while (i < j) { // mientras no se crucen las bï¿½squedas
 			while (A[i] <= pivote && i < j)
 				i++; // busca elemento mayor que pivote
 			while (A[j] > pivote)
@@ -230,4 +230,10 @@ public class Metodos {
 		return contVocal;
 	}
 
+	public static void lecturaArray(int array[]) {
+		for (int i = 0; i < array.length; i++) {
+			tryCatchInt();
+			array[i] = num;
+		}
+	}
 }

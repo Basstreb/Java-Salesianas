@@ -23,22 +23,24 @@ public class Ejercicio_08 {
 		} while (check);
 		return Ejercicio_08.num;
 	}
+	
+	public static void lecturaArray(int array[]) {
+		for (int i = 0; i < array.length; i++) {
+			Ejercicio_08.tryCatchInt();
+			array[i] = Ejercicio_08.num;
+		}
+	}
 
 	public static void main(String[] args) {
 
 		int[] array = new int[25];
 		int cont = 0;
 
-		for (int i = 0; i < array.length; i++) {
-
-			Ejercicio_08.tryCatchInt();
-
-			array[i] = Ejercicio_08.num;
-		}
+		lecturaArray(array);
 
 		System.out.println(java.util.Arrays.toString(array));
 
-		System.out.println("Introduzca el número que desea ver cuantas veces ha introducido");
+		System.out.println("Introduzca el nï¿½mero que desea ver cuantas veces ha introducido");
 		Ejercicio_08.tryCatchInt();
 
 		for (int i = 0; i < array.length; i++) {
