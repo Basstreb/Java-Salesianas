@@ -4,8 +4,10 @@
 package set;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+//import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+//import java.util.TreeSet;
 
 import modelo.Persona;
 
@@ -20,10 +22,9 @@ public class EjemploSet {
 	 */
 	public static void main(String[] args) {
 		
-		Set<Persona> juntaDirectiva = new HashSet<>();
-		//Set<Persona> juntaDirectiva = new TreeSet<>(); //Para ordenar, Persona debe implementar Comparable
-		//Set<Persona> juntaDirectiva = new LinkedHashSet<>();
-		
+		//Set<Persona> juntaDirectiva = new HashSet<>();
+		//WSet<Persona> juntaDirectiva = new TreeSet<>(); //Para ordenar, Persona debe implementar Comparable
+		Set<Persona> juntaDirectiva = new LinkedHashSet<>();
 		
 		juntaDirectiva.add(new Persona("12345678A", "Pepe", "Perez", LocalDate.of(1990, 1, 2)));
 		juntaDirectiva.add(new Persona("23456789B", "Juan", "Martinez", LocalDate.of(1991, 2, 3)));
