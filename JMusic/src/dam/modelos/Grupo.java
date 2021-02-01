@@ -1,15 +1,13 @@
 package dam.modelos;
 
-public class Manager {
+public class Grupo {
 
 	private String nombre;
-	private int edad;
-	private float sueldo;
+	private String pais;
 
-	public Manager(String n, int e, float s) {
+	public Grupo(String n, String p) {
 		nombre = n;
-		edad = e;
-		sueldo = s;
+		pais = p;
 	}
 
 	public String getNombre() {
@@ -20,29 +18,20 @@ public class Manager {
 		this.nombre = nombre;
 	}
 
-	public int getEdad() {
-		return edad;
+	public String getPais() {
+		return pais;
 	}
 
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public float getSueldo() {
-		return sueldo;
-	}
-
-	public void setSueldo(float sueldo) {
-		this.sueldo = sueldo;
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + edad;
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + Float.floatToIntBits(sueldo);
+		result = prime * result + ((pais == null) ? 0 : pais.hashCode());
 		return result;
 	}
 
@@ -54,15 +43,16 @@ public class Manager {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Manager other = (Manager) obj;
-		if (edad != other.edad)
-			return false;
+		Grupo other = (Grupo) obj;
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
-		if (Float.floatToIntBits(sueldo) != Float.floatToIntBits(other.sueldo))
+		if (pais == null) {
+			if (other.pais != null)
+				return false;
+		} else if (!pais.equals(other.pais))
 			return false;
 		return true;
 	}
