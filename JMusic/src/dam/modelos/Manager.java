@@ -5,11 +5,13 @@ public class Manager {
 	private String nombre;
 	private int edad;
 	private float sueldo;
+	private Grupo grupo;
 
-	public Manager(String n, int e, float s) {
+	public Manager(String n, int e, float s, Grupo g) {
 		nombre = n;
 		edad = e;
 		sueldo = s;
+		grupo = g;
 	}
 
 	public String getNombre() {
@@ -34,6 +36,20 @@ public class Manager {
 
 	public void setSueldo(float sueldo) {
 		this.sueldo = sueldo;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "El manager " + nombre + " representa al grupo " + grupo;
 	}
 
 	@Override

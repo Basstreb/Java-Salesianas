@@ -1,8 +1,8 @@
 package dam.modelos;
 
-public class Discografia {
+public class Discografia implements Comparable<Discografia>{
 
-	private String nombreDisco;
+	public String nombreDisco;
 	private int anio;
 
 	public Discografia(String nD, int a) {
@@ -24,6 +24,16 @@ public class Discografia {
 
 	public void setAnio(int anio) {
 		this.anio = anio;
+	}
+	
+	@Override
+	public String toString() {
+		return nombreDisco + " en el " + anio;
+	}
+
+	@Override
+	public int compareTo(Discografia o) {
+		return this.anio - o.anio;
 	}
 
 	@Override

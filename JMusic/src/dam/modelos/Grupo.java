@@ -1,13 +1,18 @@
 package dam.modelos;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 public class Grupo {
 
 	private String nombre;
 	private String pais;
+	private SortedSet<Discografia> discos = new TreeSet<>();
 
-	public Grupo(String n, String p) {
+	public Grupo(String n, String p, SortedSet<Discografia> disco) {
 		nombre = n;
 		pais = p;
+		discos = disco;
 	}
 
 	public String getNombre() {
@@ -24,6 +29,12 @@ public class Grupo {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+	
+
+	@Override
+	public String toString() {
+		return  nombre + " La discografia de este grupo esta compuesta por los discos: " + discos;
 	}
 
 	@Override

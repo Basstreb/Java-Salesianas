@@ -20,7 +20,7 @@ public class Programa {
 		cjsp.add(p);
 		cjssp.add(p);
 		
-		p = new Persona(3, "María", 170);
+		p = new Persona(3, "Marisa", 170);
 		cjsp.add(p);
 		cjssp.add(p);
 		
