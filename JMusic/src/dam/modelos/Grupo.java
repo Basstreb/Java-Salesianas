@@ -7,9 +7,9 @@ public class Grupo {
 
 	private String nombre;
 	private String pais;
-	private SortedSet<Discografia> discos = new TreeSet<>();
+	private SortedSet<CD> discos = new TreeSet<>();
 
-	public Grupo(String n, String p, SortedSet<Discografia> disco) {
+	public Grupo(String n, String p, SortedSet<CD> disco) {
 		nombre = n;
 		pais = p;
 		discos = disco;

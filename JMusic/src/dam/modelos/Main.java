@@ -14,12 +14,12 @@ public class Main {
 		listaRepresentantes = new ArrayList<>();
 		sc = new Scanner(System.in);
 		
-		Discografia disco1 = new Discografia("Back in Black", 1980);
-		Discografia disco2 = new Discografia("High Voltage", 1976);
-		Discografia disco3 = new Discografia("Highway to Hell", 1979);
-		Discografia disco4 = new Discografia("Iron Man 2", 2010);
+		CD disco1 = new CD("Back in Black", 1980);
+		CD disco2 = new CD("High Voltage", 1976);
+		CD disco3 = new CD("Highway to Hell", 1979);
+		CD disco4 = new CD("Iron Man 2", 2010);
 		
-		SortedSet<Discografia> acdc = new TreeSet<>();
+		SortedSet<CD> acdc = new TreeSet<>();
 		acdc.add(disco1);
 		acdc.add(disco2);
 		acdc.add(disco3);

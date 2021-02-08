@@ -1,11 +1,11 @@
 package dam.modelos;
 
-public class Discografia implements Comparable<Discografia>{
+public class CD implements Comparable<CD>{
 
 	public String nombreDisco;
 	private int anio;
 
-	public Discografia(String nD, int a) {
+	public CD(String nD, int a) {
 		nombreDisco = nD;
 		anio = a;
 	}
@@ -32,7 +32,7 @@ public class Discografia implements Comparable<Discografia>{
 	}
 
 	@Override
-	public int compareTo(Discografia o) {
+	public int compareTo(CD o) {
 		return this.anio - o.anio;
 	}
 
@@ -53,7 +53,7 @@ public class Discografia implements Comparable<Discografia>{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Discografia other = (Discografia) obj;
+		CD other = (CD) obj;
 		if (anio != other.anio)
 			return false;
 		if (nombreDisco == null) {
