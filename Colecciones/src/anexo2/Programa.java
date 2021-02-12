@@ -24,6 +24,10 @@ public class Programa {
 		cjsp.add(p);
 		cjssp.add(p);
 		
+		p = new Persona(1, "Carlos", 170);
+		cjsp.add(p);
+		cjssp.add(p);
+		
 		System.out.println("Personas en el conjunto: \n" + cjsp);
 		System.out.println("Personas en el conjunto ordenado: \n" + cjssp);
 	}

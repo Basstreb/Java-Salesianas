@@ -1,15 +1,20 @@
 package dam.modelos;
 
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.ArrayList;
 
 public class Grupo {
 
 	private String nombre;
 	private String pais;
-	private SortedSet<CD> discos = new TreeSet<>();
+	private ArrayList<CD> discos = new ArrayList<>();
+	
+	public Grupo(String n, String p) {
+		nombre = n;
+		pais = p;
+		discos = new ArrayList<>();
+	}
 
-	public Grupo(String n, String p, SortedSet<CD> disco) {
+	public Grupo(String n, String p, ArrayList<CD> disco) {
 		nombre = n;
 		pais = p;
 		discos = disco;

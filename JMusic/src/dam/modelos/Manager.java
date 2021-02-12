@@ -7,6 +7,12 @@ public class Manager {
 	private float sueldo;
 	private Grupo grupo;
 
+	public Manager(String n, int e, float s) {
+		nombre = n;
+		edad = e;
+		sueldo = s;
+	}
+	
 	public Manager(String n, int e, float s, Grupo g) {
 		nombre = n;
 		edad = e;
