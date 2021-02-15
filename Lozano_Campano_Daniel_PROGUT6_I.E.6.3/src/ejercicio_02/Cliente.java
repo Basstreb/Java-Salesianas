@@ -1,5 +1,8 @@
 package ejercicio_02;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
 
 	private String dni;
@@ -7,6 +10,7 @@ public class Cliente {
 	private String apellido;
 	private String direccion;
 	private int telefono;
+	private List<Cuenta> cuentas = new ArrayList<>();
 	
 	public Cliente (String dni, String n, String a, String d, int t) {
 		this.dni = dni;

@@ -26,33 +26,34 @@ public class EjemploFlatMap {
 			for (Viaje v : p.getViajes())
 				System.out.println(v.getPais());
 		System.out.println("");
-		
-		// �C�mo podr�amos hacer para identificar los paieses diferentes? :S
-		
-		
+
+		// Como podriamos hacer para identificar los paieses diferentes? :S
+
 		// Con el nuevo estilo podemos a�adir al vuelo la opci�n de filtrar repetidos
-		System.out.println("PAISES (DIFERENTES, SIN REPETIDOS) A LOS QUE VIAJAN ALGUNAS PERSONAS");		
-		lista.stream().map(persona -> persona.getViajes()).flatMap(viajes -> viajes.stream())
-				.map(viaje -> viaje.getPais()).distinct().forEach(System.out::println);
-		
-		// Para los tipos de datos primitivos, tambi�n tenemos sus versiones flatMapToXXX
-		// Si tan solo los queremos unificar, podemos usar la funci�n Function.identity()
-		int[][] numeros = {{1, 2, 2, 3, 1, 4}, {4, 2, 3, 3, 1, 1}};
-		
-		Arrays
-			.stream(numeros)
-			.flatMapToInt(x -> Arrays.stream(x))
-			.map(IntUnaryOperator.identity())
-			.distinct()
-			.forEach(System.out::println);
-			
+		System.out.println("PAISES (DIFERENTES, SIN REPETIDOS) A LOS QUE VIAJAN ALGUNAS PERSONAS");
+		lista.stream() // Stream <Persona>
+				.map(persona -> persona.getViajes()) // Stream <List<Viaje>>
+				.flatMap(viajes -> viajes.stream()) // Stream<Viaje>
+				.map(viaje -> viaje.getPais()) // Stream <String> Espania, Francia, Espania, Alemania
+				.distinct() // Stream <String> Espania, Francia, Alemania
+				.forEach(System.out::println);
+		System.out.println("");
+
+		// Para los tipos de datos primitivos, tambien tenemos sus versiones
+		// flatMapToXXX
+		// Si tan solo los queremos unificar, podemos usar la funcion
+		// Function.identity()
+		int[][] numeros = { { 1, 2, 2, 3, 1, 4 }, { 4, 2, 3, 3, 1, 1 } };
+
+		Arrays.stream(numeros).flatMapToInt(x -> Arrays.stream(x)).map(IntUnaryOperator.identity()).distinct()
+				.forEach(System.out::println);
 
 	}
 
 	public static List<Persona> init() {
 
 		Persona p1 = new Persona("Luismi");
-		p1.getViajes().add(new Viaje("Espa�a"));
+		p1.getViajes().add(new Viaje("Espania"));
 		p1.getViajes().add(new Viaje("Italia"));
 		p1.getViajes().add(new Viaje("Francia"));
 

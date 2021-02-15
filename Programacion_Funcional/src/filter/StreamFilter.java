@@ -25,12 +25,12 @@ public class StreamFilter {
 				new Persona("Jesus", LocalDate.of(1931, 3, 13)),
 				new Persona("Miguel", LocalDate.of(1943, 8, 1)),
 				new Persona("Simon", LocalDate.of(1949, 5, 22)),
-				new Persona("Luisa", LocalDate.of(1959, 8, 28)),
+				new Persona("Luisa", LocalDate.of(1949, 8, 28)),
 				new Persona("Antonio", LocalDate.of(1965, 4, 28)),
-				new Persona("Alicia", LocalDate.of(1974, 2, 10)),
+				new Persona("Alicia", LocalDate.of(1982, 2, 10)),
 				new Persona("Angel", LocalDate.of(1982, 10, 12)),
-				new Persona("Alberto", LocalDate.of(2000, 1, 2)),
-				new Persona("Maria", LocalDate.of(2002, 4, 21))
+				new Persona("Alberto", LocalDate.of(2001, 1, 2)),
+				new Persona("Maria", LocalDate.of(2001, 4, 21))
 				);
 
 		
@@ -40,40 +40,42 @@ public class StreamFilter {
 		personas
 			.stream()
 			.filter(p -> p.getEdad() >= 18)
-			.map(Persona::getNombre)
+			.map(Persona::getNombre)//Es lo mismo que .map(p->p.getNombre())
 			.forEach(System.out::println);
+//			.forEach(p->System.out.println(p)); Esto tambien es valido Ambos metodos hacen lo mismo
 		System.out.println("");
 		
 		
 		// Obtener todas las personas en edad activa
-		System.out.println("PERSONAS EN EDAD ACTIVA (18-65 A�OS)");
+		System.out.println("PERSONAS EN EDAD ACTIVA (18-65 ANIOS)");
 		personas
 			.stream()
 			.filter(p -> p.getEdad() >= 18 && p.getEdad() <= 65)
-			.forEach(persona -> System.out.printf("%s (%d a�os)%n", persona.getNombre(), persona.getEdad()));
+//			.forEach(persona -> System.out.printf("%s (%d anios)%n", persona.getNombre(), persona.getEdad()));
+			.forEach(p -> System.out.printf("%s (%d anios)%n", p.getNombre(), p.getEdad()));
 		System.out.println("");
 
-		// Obtener el n�mero de personas que cumplen una condici�n
+		// Obtener el numero de personas que cumplen una condicion
 		long nPersonas = personas
 				.stream()
-				.filter(p -> p.getFechaNacimiento().getYear() >= 2001)
+				.filter(p -> p.getFechaNacimiento().getYear() >= 2000)
 				.count();
-		System.out.printf("N� PERSONAS QUE HAN NACIDO EN EL SIGLO XXI: %d%n", nPersonas);
+		System.out.printf("NUMERO DE PERSONAS QUE HAN NACIDO EN EL SIGLO XXI: %d%n", nPersonas);
 		
-		// Agrupar las personas que cumplen una condici�n
+		// Agrupar las personas que cumplen una condicion
 		System.out.println("PERSONAS MAYORES DE EDAD, AGRUPADOS POR EDAD");
 		personas
 				.stream()
 				.filter(p -> p.getEdad() >= 18)
 				.collect(Collectors.groupingBy(Persona::getEdad, Collectors.counting()))
-				.forEach((edad, numero) -> System.out.printf("%d a�os: %d personas%n", edad, numero));
+				.forEach((edad, numero) -> System.out.printf("%d anios: %d personas%n", edad, numero));
 				
 		
-		// Condiciones "m�s complejas"
+		// Condiciones "mas complejas"
 		
 		Persona p1 = personas
 						.stream()
-						.filter(p -> p.getNombre().equalsIgnoreCase("Andr�s"))
+						.filter(p -> p.getNombre().equalsIgnoreCase("Andres"))
 						.findAny()
 						.orElse(new Persona());
 		
