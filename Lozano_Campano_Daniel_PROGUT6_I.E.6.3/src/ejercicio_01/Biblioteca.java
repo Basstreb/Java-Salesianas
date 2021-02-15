@@ -9,10 +9,9 @@ public class Biblioteca {
 	private static List<Socio> socios = new ArrayList<>();
 
 	public static void main(String[] args) {
-
 		inicializar();
 		int opcion;
-
+		
 		do {
 			opcion = menu();
 			switch (opcion) {
@@ -72,7 +71,7 @@ public class Biblioteca {
 		System.out.println("8. Devolver Libro de un Socio.");
 		System.out.println("9. Salir de la Aplicacion.");
 		System.out.println("======================================");
-		opcion = LecturaTeclado("Introduce opci�n(1 a 9): ", 1, 9);
+		opcion = LecturaTeclado("Introduce opcion(1 a 9): ", 1, 9);
 		return opcion;
 	}
 
@@ -98,11 +97,11 @@ public class Biblioteca {
 		}
 	}
 
-	public static void aniadirLibroBiblio() {
+	public static void aniadirLibroBiblio() {		
 		System.out.println("Introduza Titulo del libro.");
-		String titulo = sc.next();
+		String titulo = sc.next();		
 		System.out.println("Introduza Autor del libro.");
-		String autor = sc.next();
+		String autor = sc.next();	
 		Libro libro = new Libro(titulo, autor);
 		libros.add(libro);
 	}
