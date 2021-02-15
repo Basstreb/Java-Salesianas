@@ -146,7 +146,7 @@ public class Biblioteca {
 		}
 	}
 
-	private static void sacarLibroSocio() {
+	public static void sacarLibroSocio() {
 		int numSocio = LecturaTeclado("Introduzca el numero de socio al que va a dar el libro: ");
 		int numLibro = LecturaTeclado("Introduzca el numero de libro que quiera sacar: ");
 		boolean check = false;
@@ -177,7 +177,7 @@ public class Biblioteca {
 		}
 	}
 
-	private static void dejarLibroSocio() {
+	public static void dejarLibroSocio() {
 		int numSocio = LecturaTeclado("Introduzca el carnet de socio que desea devolver un libro: ");
 		boolean check = false;
 		int num = 0;
@@ -210,7 +210,7 @@ public class Biblioteca {
 		}
 	}
 
-	private static int LecturaTeclado(String string) {
+	public static int LecturaTeclado(String string) {
 		boolean sal = false;
 		int entero = 0;
 		do {
@@ -229,7 +229,7 @@ public class Biblioteca {
 		return entero;
 	}// LecturaEntero
 
-	private static int LecturaTeclado(String string, int min, int max) {
+	public static int LecturaTeclado(String string, int min, int max) {
 		boolean sal = false;
 		int entero = 0;
 		do {

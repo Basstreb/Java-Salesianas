@@ -11,7 +11,23 @@ public class Banco {
 	private static List<Cliente> clientes = new ArrayList<>();
 	
 	public static void main(String[] args) {
-
+		
+		
+		
+	}
+	
+	public static void menu() {
+		System.out.println("=======================");
+		System.out.println("1. Nuevo Cliente");
+		System.out.println("2. Nueva Cuenta");
+		System.out.println("3. Litar Clientes y Cuentas");
+		System.out.println("4. Ingresar Dinero");
+		System.out.println("5. Sacar Dinero");
+		System.out.println("6. Consultar Saldo");
+		System.out.println("7. Revision Mensual");
+		System.out.println("8. Cambiar Comision Mensual");
+		System.out.println("0. Salir");
+		System.out.println("=======================");
 	}
 
 }
