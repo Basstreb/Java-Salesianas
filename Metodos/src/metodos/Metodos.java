@@ -1,12 +1,14 @@
 package metodos;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Metodos {
 	private static int num;
 	private static boolean check;
 	private static String texto;
+	private static Scanner sc = new Scanner(System.in);
 
 	@SuppressWarnings("unused")
 	private static int tryCatchInt() {
@@ -236,4 +238,23 @@ public class Metodos {
 			array[i] = num;
 		}
 	}
+	
+	public static int LecturaTeclado(String string) {
+		boolean sal = false;
+		int entero = 0;
+		do {
+			try {
+				System.out.print(string);
+				entero = sc.nextInt();
+				sc.nextLine();
+				if (entero >= 0) {
+					sal = true;
+				}
+			} catch (InputMismatchException i) {
+				sc.nextLine();
+			}
+		} while (!sal);
+
+		return entero;
+	}// LecturaEntero
 }

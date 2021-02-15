@@ -60,5 +60,7 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 	
-	
+	public void setCuenta(Cuenta cuenta) {
+		cuentas.add(cuenta);
+	}
 }

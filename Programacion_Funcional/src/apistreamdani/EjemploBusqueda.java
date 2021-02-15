@@ -24,7 +24,9 @@ public class EjemploBusqueda {
 		System.out.println("");
 
 		// Verificamos si Alguno de los elementos cumple con una condicion
-		boolean jaen = capitales.stream().anyMatch((s) -> s.equalsIgnoreCase("jaen"));
+		boolean jaen = capitales
+								.stream()
+								.anyMatch((s) -> s.equalsIgnoreCase("jaen"));
 		
 		String mensajeJaen = (jaen) ? "Jaen esta en la lista de capitales" : "Jaen no esta en la lista de capitales";
 		

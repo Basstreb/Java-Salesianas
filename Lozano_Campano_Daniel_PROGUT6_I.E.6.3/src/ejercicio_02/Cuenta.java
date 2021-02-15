@@ -2,7 +2,7 @@ package ejercicio_02;
 
 public class Cuenta {
 
-	private static long numCuentaSt = 1000000;
+	private static long numCuentaSt = 1000000l;
 	private long numCuenta;
 	private double saldo;
 	private double interes_cuenta;
