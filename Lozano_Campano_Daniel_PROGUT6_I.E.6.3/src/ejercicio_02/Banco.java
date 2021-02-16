@@ -14,7 +14,7 @@ public class Banco {
 
 	public static void main(String[] args) {
 		int opcion;
-		
+
 		do {
 			opcion = menu();
 			switch (opcion) {
@@ -31,16 +31,16 @@ public class Banco {
 				ingresarDinero();
 				break;
 			case 5:
-				
+				sacarDinero();
 				break;
 			case 6:
-				
+				consultarSaldo();
 				break;
 			case 7:
-				
+				revisionMensual();
 				break;
 			case 8:
-				
+				cambiarComision();
 				break;
 			case 0:
 				break;
@@ -68,7 +68,7 @@ public class Banco {
 	public static void crearCliente() {
 		if (clientes.size() == 1000) {
 			System.out.println("No se pueden crear mas clientes");
-		}else {
+		} else {
 			System.out.println("Introduzca el DNI del Cliente");
 			String dni = sc.next();
 			System.out.println("Introduzca el nombre del Cliente");
@@ -84,43 +84,201 @@ public class Banco {
 	}
 
 	public static void crearCuenta() {
-		if (clientes.size() == 0) {
-			System.out.println("No hay ningun cliente al que crear cuenta");
+		if (cuentas.size() == 1000) {
+			System.out.println("No se pueden crear mas cuentas");
 		} else {
-			double saldo = LecturaTecladoDou("Cuando dinero desea ingresar en la cuenta creada?\n");
-			Cuenta cuenta = new Cuenta(saldo);
-			cuentas.add(cuenta);
-			check = false;
-			do {
-				System.out.println("A que Cliente quiere asignar la cuenta, introduzca su DNI");
-				clientes.stream().forEach(c -> System.out
-						.println("Nombre: " + c.getNombre() + " Apellido: " + c.getApellido() + " DNI: " + c.getDni()));
-				String dni = sc.next();
-				clientes
-					.stream()
-					.filter(c -> c.getDni().equalsIgnoreCase(dni))
-					.forEach(c -> {
+			if (clientes.size() == 0) {
+				System.out.println("No hay ningun cliente al que crear cuenta");
+			} else {
+				double saldo = LecturaTecladoDou("Cuando dinero desea ingresar en la cuenta creada?\n");
+				Cuenta cuenta = new Cuenta(saldo);
+				cuentas.add(cuenta);
+				check = false;
+				do {
+					System.out.println("A que Cliente quiere asignar la cuenta, introduzca su DNI");
+					clientes.stream().forEach(c -> System.out.println(
+							"Nombre: " + c.getNombre() + " Apellido: " + c.getApellido() + " DNI: " + c.getDni()));
+					String dni = sc.next();
+					clientes.stream().filter(c -> c.getDni().equalsIgnoreCase(dni)).forEach(c -> {
 						c.setCuenta(cuenta);
 						cuenta.setCliente(c);
 						check = true;
-						System.out.println("Cuenta aniadida correctamente al Cliente");});
-			} while (!check);
+						System.out.println("Cuenta aniadida correctamente al Cliente");
+					});
+				} while (!check);
+			}
 		}
 	}
 
 	public static void listarClientesCuentas() {
-		clientes
-			.stream()
-			.forEach(c -> System.out.println("Nombre: " + c.getNombre() + " Apellido: " + c.getApellido() + " DNI: " + c.getDni()));
+		if (clientes.size() == 0) {
+			System.out.println("No hay Clientes para Mostrar");
+		} else {
+			System.out.println("Clientes: ");
+			clientes.stream().forEach(
+					c -> System.out.println("Nombre: " + c.getNombre() + " | Apellido: " + c.getApellido() + " | DNI: "
+							+ c.getDni() + " | Direccion: " + c.getDireccion() + " | Telefono: " + c.getTelefono()));
+		}
+
+		System.out.println("");
+
+		if (cuentas.size() == 0) {
+			System.out.println("No hay Cuentas para Mostrar");
+		} else {
+			System.out.println("Cuentas:");
+			cuentas.stream().forEach(
+					cu -> System.out.println("Numero Cuenta: " + cu.getNumCuenta() + " | Saldo: " + cu.getSaldo()
+							+ " | DNI Cliente: " + cu.getCliente().getDni() + " Comision: " + cu.getComision()));
+		}
 	}
-	
+
 	public static void ingresarDinero() {
-		System.out.println("Introduzca DNI del Cliente");
-		String dni = sc.next();
-		cuentas
-			.stream()
-			.filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni))
-			.forEach(cu -> System.out.println(cu.getNumCuenta()));
+		if (cuentas.size() == 0) {
+			System.out.println("No existen cuentas a las que ingresar dinero");
+		} else {
+			System.out.println("Introduzca DNI del Cliente");
+			String dni = sc.next();
+			check = false;
+
+			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " DNI: " + cu.getCliente().getDni());
+				check = true;
+			});
+
+			if (check) {
+				check = false;
+				double saldo = LecturaTecladoDou("Introduzca cantidad de saldo a ingresar:\n");
+				do {
+					long cuenta = LecturaTeclado("Introduzca el numero de cuenta en el que quiere ingresar dinero:\n");
+					cuentas.stream().filter(cu -> cu.getNumCuenta() == cuenta).forEach(cu -> {
+						cu.ingresarDinero(saldo);
+						check = true;
+					});
+					if (!check)
+						System.out.println("Numero de cuenta incorrecto");
+				} while (!check);
+			} else {
+				System.out.println("El DNI del Cliente no es correcto.");
+			}
+		}
+	}
+
+	public static void sacarDinero() {
+		if (cuentas.size() == 0) {
+			System.out.println("No existen cuentas a las que ingresar dinero");
+		} else {
+			System.out.println("Introduzca DNI del Cliente");
+			String dni = sc.next();
+			check = false;
+
+			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " DNI: " + cu.getCliente().getDni());
+				check = true;
+			});
+
+			if (check) {
+				check = false;
+				double saldo = LecturaTecladoDou("Introduzca cantidad de saldo a retirar:\n");
+				do {
+					long cuenta = LecturaTeclado(
+							"Introduzca el numero de cuenta en el que quiere cambiar la comision:\n");
+					cuentas.stream().filter(cu -> cu.getNumCuenta() == cuenta).forEach(cu -> {
+						cu.sacarDinero(saldo);
+						check = true;
+					});
+					if (!check)
+						System.out.println("Numero de cuenta incorrecto");
+				} while (!check);
+			} else {
+				System.out.println("El DNI del Cliente no es correcto.");
+			}
+		}
+	}
+
+	public static void consultarSaldo() {
+		if (cuentas.size() == 0) {
+			System.out.println("No existen cuentas a las que ingresar dinero");
+		} else {
+			System.out.println("Introduzca DNI del Cliente");
+			String dni = sc.next();
+			check = false;
+
+			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " Saldo: " + cu.getSaldo() + " DNI: "
+						+ cu.getCliente().getDni());
+				check = true;
+			});
+
+			if (!check)
+				System.out.println("El DNI introducido no corresponde a ningun Cliente");
+		}
+	}
+
+	public static void revisionMensual() {
+		if (cuentas.size() == 0) {
+			System.out.println("No existen cuentas a las que ingresar dinero");
+		} else {
+			System.out.println("Introduzca DNI del Cliente");
+			String dni = sc.next();
+			check = false;
+
+			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " DNI: " + cu.getCliente().getDni());
+				check = true;
+			});
+
+			if (check) {
+				check = false;
+				do {
+					long cuenta = LecturaTeclado(
+							"Introduzca el numero de cuenta en el que quiere realizar la revision mensual:\n");
+					cuentas.stream().filter(cu -> cu.getNumCuenta() == cuenta).forEach(cu -> {
+						cu.revisionMensual();
+						check = true;
+					});
+					if (!check)
+						System.out.println("Numero de cuenta incorrecto");
+					else
+						System.out.println("Revision mensual realizada correctamente");
+				} while (!check);
+			} else {
+				System.out.println("El DNI del Cliente no es correcto.");
+			}
+		}
+	}
+
+	public static void cambiarComision() {
+		if (cuentas.size() == 0) {
+			System.out.println("No existen cuentas a las que ingresar dinero");
+		} else {
+			System.out.println("Introduzca DNI del Cliente");
+			String dni = sc.next();
+			check = false;
+
+			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " DNI: " + cu.getCliente().getDni());
+				check = true;
+			});
+
+			if (check) {
+				check = false;
+				double comision = LecturaTecladoDou("Introduzca la nueva comision:\n");
+				do {
+					long cuenta = LecturaTeclado(
+							"Introduzca el numero de cuenta en el que quiere cambiar la comision:\n");
+					cuentas.stream().filter(cu -> cu.getNumCuenta() == cuenta).forEach(cu -> {
+						cu.setComision(comision);
+						check = true;
+					});
+					if (!check)
+						System.out.println("Numero de cuenta incorrecto");
+					else
+						System.out.println("Comision cambiada correctamente");
+				} while (!check);
+			} else {
+				System.out.println("El DNI del Cliente no es correcto.");
+			}
+		}
 	}
 
 	public static int LecturaTeclado(String string) {

@@ -43,14 +43,16 @@ public class Cuenta {
 		this.comision = comision;
 	}
 
-	public void ingresarDinero(long dinero) {
+	public void ingresarDinero(double dinero) {
 		saldo += dinero;
+		System.out.println("Saldo ingresado satisfactoriamente");
 	}
 	
-	public void sacarDinero (long dinero) {
+	public void sacarDinero (double dinero) {
 		if (dinero > saldo) {
 			System.out.println("No puede sacar la cantidad especificada, su saldo es de " + saldo);
 		}else {
+			System.out.println("Saldo retirado satisfactoriamente");
 			saldo -= dinero;
 		}
 	}
