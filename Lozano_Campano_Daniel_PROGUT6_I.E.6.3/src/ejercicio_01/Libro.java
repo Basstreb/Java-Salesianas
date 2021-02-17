@@ -34,4 +34,9 @@ public class Libro {
 	public void setSocio(Socio socio) {
 		this.socio = socio;
 	}
+
+	@Override
+	public String toString() {
+		return ". Libro Titulo: " + titulo + ", autor: " + autor;
+	}
 }

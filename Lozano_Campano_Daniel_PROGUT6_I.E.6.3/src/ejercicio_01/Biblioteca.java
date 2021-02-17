@@ -7,11 +7,11 @@ public class Biblioteca {
 	static Scanner sc = new Scanner(System.in);
 	private static List<Libro> libros = new ArrayList<>();
 	private static List<Socio> socios = new ArrayList<>();
+	static int i = 0;
 
 	public static void main(String[] args) {
 		inicializar();
 		int opcion;
-		
 		do {
 			opcion = menu();
 			switch (opcion) {
@@ -79,10 +79,7 @@ public class Biblioteca {
 		if (socios.size() == 0) {
 			System.out.println("No hay ningun socio en la Biblioteca.");
 		} else {
-			for (int i = 0; i < socios.size(); i++) {
-				System.out.println(i + ". Nombre: " + socios.get(i).getNombre() + ", numero de carnet: "
-						+ socios.get(i).getNumCarnet());
-			}
+			recorrerSocios();
 		}
 	}
 
@@ -90,18 +87,18 @@ public class Biblioteca {
 		if (libros.size() == 0) {
 			System.out.println("No hay ningun libro en la Biblioteca.");
 		} else {
-			for (int i = 0; i < libros.size(); i++) {
-				System.out
-						.println(i + ". Titulo: " + libros.get(i).getTitulo() + ", Autor: " + libros.get(i).getAutor());
-			}
+//			for(Libro li : libros) {
+//				System.out.println(li);
+//			}
+			recorrerLibros();
 		}
 	}
 
-	public static void aniadirLibroBiblio() {		
+	public static void aniadirLibroBiblio() {
 		System.out.println("Introduza Titulo del libro.");
-		String titulo = sc.next();		
+		String titulo = sc.next();
 		System.out.println("Introduza Autor del libro.");
-		String autor = sc.next();	
+		String autor = sc.next();
 		Libro libro = new Libro(titulo, autor);
 		libros.add(libro);
 	}
@@ -114,16 +111,24 @@ public class Biblioteca {
 	}
 
 	public static void borrarLibroBiblio() {
+		recorrerLibros();
 		int libro = LecturaTeclado("Introduzca el numero del libro a  borrar: ");
-		if (libros.get(libro).getSocio() == null) {
-			libros.remove(libro);
+
+		if (libros.size() <= libro) {
+			System.out.println("No existe el libro indicado.");
 		} else {
-			System.out.println("El libro no esta en la biblioteca, lo tiene el socio numero: "
-					+ libros.get(libro).getSocio().getNumCarnet());
+			if (libros.get(libro).getSocio() == null) {
+				libros.remove(libro);
+				System.out.println("Libro removido satisfactoriamente");
+			} else {
+				System.out.println("El libro no esta en la biblioteca, lo tiene el socio numero: "
+						+ libros.get(libro).getSocio().getNumCarnet());
+			}
 		}
 	}
 
 	public static void borrarSocioBiblio() {
+		verSociosBiblio();
 		int borrar = LecturaTeclado("Introduzca el numero del carnet del socio a Borrar: ");
 		boolean check = false;
 		int socio = 0;
@@ -134,7 +139,14 @@ public class Biblioteca {
 				socio = i;
 			}
 		}
-		System.err.println(socio);
+//		socios
+//		.stream()
+//		.filter(so -> so.getNumCarnet() == borrar)
+//		.forEach(so -> {
+//			check = true;
+//			socio = i;
+//		});
+
 		if (!check) {
 			System.out.println("Este socio no existe.");
 		} else {
@@ -147,7 +159,9 @@ public class Biblioteca {
 	}
 
 	public static void sacarLibroSocio() {
+		recorrerSocios();
 		int numSocio = LecturaTeclado("Introduzca el numero de socio al que va a dar el libro: ");
+		recorrerLibros();
 		int numLibro = LecturaTeclado("Introduzca el numero de libro que quiera sacar: ");
 		boolean check = false;
 		int num = 0;
@@ -159,10 +173,10 @@ public class Biblioteca {
 			}
 		}
 		if (!check) {
-			System.out.println("El numero introducido no corresponde a algun Socio,");
+			System.out.println("El numero introducido no corresponde a algun Socio.");
 			return;
 		}
-		if (numLibro < 0 || numLibro > socios.get(numSocio).getLibros().size()) {
+		if (numLibro < 0 || numLibro >= libros.size()) {
 			System.out.println("El numero introducido no corresponde a ningun Libro.");
 			return;
 		}
@@ -173,11 +187,11 @@ public class Biblioteca {
 			libros.get(numLibro).setSocio(socios.get(num));
 		} else {
 			System.out.println("El numero del libro o el de socio son incorrectos o el libro ya ha sido sustraido.");
-
 		}
 	}
 
 	public static void dejarLibroSocio() {
+		recorrerSocios();
 		int numSocio = LecturaTeclado("Introduzca el carnet de socio que desea devolver un libro: ");
 		boolean check = false;
 		int num = 0;
@@ -189,27 +203,45 @@ public class Biblioteca {
 			}
 		}
 		if (!check)
-			System.out.println("El numero introducido no corresponde a un socio");
+			System.out.println("El numero introducido no corresponde a un socio.");
 		else {
 			if (socios.get(num).getLibros().size() == 0) {
-				System.out.println("El socio introduzido no ha sacado ningun libro");
+				System.out.println("El socio introduzido no ha sacado ningun libro.");
 			} else {
 				for (int j = 0; j < socios.get(num).getLibros().size(); j++) {
-
 					System.out.println(j + ". Titulo: " + socios.get(num).getLibros().get(j).getTitulo() + ", Autor: "
 							+ socios.get(num).getLibros().get(j).getAutor());
-					int libro = LecturaTeclado("Que libro quiere devolver?");
+					int libro = LecturaTeclado("Que libro quiere devolver?\n");
 					if (libro < 0 || libro >= socios.get(num).getLibros().size()) {
-						System.out.println("El numero introducido no corresponde a ningun libro");
+						System.out.println("El numero introducido no corresponde a ningun libro.");
 					} else {
 						socios.get(num).getLibros().get(libro).setSocio(null);
 						socios.get(num).getLibros().remove(libro);
+						System.out.println("Libro devuelto satisfactoriamente.");
 					}
 				}
 			}
 		}
 	}
 
+	public static void recorrerLibros() {
+		i = 0;
+		libros.stream().forEach(li -> {
+			System.out.print(i);
+			i++;
+			System.out.println(li);
+		});
+	}
+	
+	public static void recorrerSocios() {
+		i = 0;
+		socios.stream().forEach(so -> {
+			System.out.print(i);
+			i++;
+			System.out.println(so);
+		});
+	}
+	
 	public static int LecturaTeclado(String string) {
 		boolean sal = false;
 		int entero = 0;

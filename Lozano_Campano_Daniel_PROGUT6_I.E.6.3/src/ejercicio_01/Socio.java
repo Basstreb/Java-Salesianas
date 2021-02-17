@@ -35,4 +35,9 @@ public class Socio {
 	public List<Libro> getLibros() {
 		return libros;
 	}
+
+	@Override
+	public String toString() {
+		return ". Socio Nombre: " + nombre + ", Numero de Carnet: " + numCarnet;
+	}
 }
