@@ -255,7 +255,10 @@ public class Banco {
 			String dni = sc.next();
 			check = false;
 
-			cuentas.stream().filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni)).forEach(cu -> {
+			cuentas
+				.stream()
+				.filter(cu -> cu.getCliente().getDni().equalsIgnoreCase(dni))
+				.forEach(cu -> {
 				System.out.println("Numero de Cuenta: " + cu.getNumCuenta() + " DNI: " + cu.getCliente().getDni());
 				check = true;
 			});

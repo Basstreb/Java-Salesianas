@@ -45,9 +45,12 @@ public class EjemploFlatMap {
 		// Function.identity()
 		int[][] numeros = { { 1, 2, 2, 3, 1, 4 }, { 4, 2, 3, 3, 1, 1 } };
 
-		Arrays.stream(numeros).flatMapToInt(x -> Arrays.stream(x)).map(IntUnaryOperator.identity()).distinct()
-				.forEach(System.out::println);
-
+		Arrays
+			.stream(numeros)
+			.flatMapToInt(x -> Arrays.stream(x))
+			.map(IntUnaryOperator.identity())
+			.distinct()
+			.forEach(System.out::println);
 	}
 
 	public static List<Persona> init() {
