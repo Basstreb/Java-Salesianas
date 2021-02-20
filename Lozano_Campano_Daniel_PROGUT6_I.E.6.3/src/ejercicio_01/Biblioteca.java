@@ -133,28 +133,19 @@ public class Biblioteca {
 		boolean check = false;
 		int socio = 0;
 
-		for (int i = 0; i < socios.size(); i++) {
-			if (socios.get(i).getNumCarnet() == borrar) {
+		for (Socio soci : socios) {
+			if (soci.getNumCarnet() == borrar) {
 				check = true;
-				socio = i;
 			}
-		}
-//		socios
-//		.stream()
-//		.filter(so -> so.getNumCarnet() == borrar)
-//		.forEach(so -> {
-//			check = true;
-//			socio = i;
-//		});
 
-		if (!check) {
-			System.out.println("Este socio no existe.");
-		} else {
-			System.out.println("Socio borrado correctamente.");
-			for (int i = 0; i < socios.get(socio).getLibros().size(); i++) {
-				socios.get(socio).getLibros().get(i).setSocio(null);
+			if (!check) {
+				System.out.println("Este socio no existe.");
+			} else {
+				System.out.println("Socio borrado correctamente.");
+				soci.getLibros().stream().forEach(li -> li.setSocio(null));
+				socio = socios.indexOf(soci);
+				socios.remove(socio);
 			}
-			socios.remove(socio);
 		}
 	}
 
@@ -202,6 +193,7 @@ public class Biblioteca {
 				num = i;
 			}
 		}
+
 		if (!check)
 			System.out.println("El numero introducido no corresponde a un socio.");
 		else {
@@ -232,7 +224,7 @@ public class Biblioteca {
 			System.out.println(li);
 		});
 	}
-	
+
 	public static void recorrerSocios() {
 		i = 0;
 		socios.stream().forEach(so -> {
@@ -241,7 +233,7 @@ public class Biblioteca {
 			System.out.println(so);
 		});
 	}
-	
+
 	public static int LecturaTeclado(String string) {
 		boolean sal = false;
 		int entero = 0;
