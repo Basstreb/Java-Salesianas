@@ -1,19 +1,27 @@
 package ejercicio_01;
 
-public interface Interface {
-	public void verSociosBiblio();
+public interface Interface{
+	public static void verSociosBiblio() {
+	}
 
-	public void verLibrosBiblio();
+	public static void verLibrosBiblio() {
+	}
 
-	public void aniadirLibroBiblio();
+	public static void aniadirLibroBiblio() {
+	}
 
-	public void aniadirSocioBiblio();
+	public static void aniadirSocioBiblio() {
+	}
 
-	public void borrarLibroBiblio();
+	public static void borrarLibroBiblio() {
+	}
 
-	public void borrarSocioBiblio();
+	public static void borrarSocioBiblio() {
+	}
 
-	public void sacarLibroSocio();
+	public static void sacarLibroSocio() {
+	}
 
-	public void dejarLibroSocio();
+	public static void dejarLibroSocio() {
+	}
 }

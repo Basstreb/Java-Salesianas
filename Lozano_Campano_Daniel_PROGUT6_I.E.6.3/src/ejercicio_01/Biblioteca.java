@@ -2,7 +2,7 @@ package ejercicio_01;
 
 import java.util.*;
 
-public class Biblioteca {
+public class Biblioteca implements Interface{
 
 	static Scanner sc = new Scanner(System.in);
 	private static List<Libro> libros = new ArrayList<>();
