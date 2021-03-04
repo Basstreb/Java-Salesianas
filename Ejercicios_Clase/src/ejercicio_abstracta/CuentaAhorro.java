@@ -31,7 +31,7 @@ public class CuentaAhorro extends Cuenta {
 	@Override
 	public void retirar(double retiro) {
 		if ((saldo - retiro) < saldoMinimo) {
-			System.out.println("No puede extraer tal cantidad debido a que excede el saldo mínimo.");
+			System.out.println("No puede extraer tal cantidad debido a que excede el saldo mï¿½nimo.");
 		} else {
 			saldo -= retiro;
 		}
