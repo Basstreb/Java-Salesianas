@@ -2,19 +2,19 @@ package Banco;
 
 public class CuentaPlazo extends CuentaAbs {
 
-	public CuentaPlazo(String numero, String titular, double saldo, int numAños) {
+	public CuentaPlazo(String numero, String titular, double saldo, int numAÃ±os) {
 		super(numero, titular, saldo);
-		this.numAños = numAños;
+		this.numAÃ±os = numAÃ±os;
 	}
 	
-	private int numAños;
+	private int numAÃ±os;
 	
 	public double calculaInteres(double cantidad){
 		return cantidad*0.05;
 	}
 	
 	public String toString() {
-		return super.toString() + " - " + this.numAños;
+		return super.toString() + " - " + this.numAÃ±os;
 	}
 	
 }
