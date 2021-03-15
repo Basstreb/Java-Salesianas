@@ -4,14 +4,14 @@ import java.util.Calendar;
 
 	public class Fecha {
 		//atributos
-		private int año;
+		private int aÃ±o;
 		private int mes;
 		private int dia;
 		//constructores
-		public Fecha(int dia, int mes, int año) {
+		public Fecha(int dia, int mes, int aÃ±o) {
 			this.dia = dia;
 			this.mes = mes;
-			this.año = año;
+			this.aÃ±o = aÃ±o;
 		}
 		public Fecha(String cadenaFecha) throws FechaMal {
 			String[] st = cadenaFecha.split("/");
@@ -23,23 +23,23 @@ import java.util.Calendar;
 			String aa = st[2];
 			this.dia = Integer.parseInt(dd);
 			this.mes = Integer.parseInt(mm);
-			this.año = Integer.parseInt(aa);
+			this.aÃ±o = Integer.parseInt(aa);
 		}
 		public Fecha() {
 			Calendar hoy = Calendar.getInstance();
-			año = hoy.get(Calendar.YEAR);
+			aÃ±o = hoy.get(Calendar.YEAR);
 			mes = hoy.get(Calendar.MONTH) + 1;
 			dia = hoy.get(Calendar.DAY_OF_MONTH);
 		}
-		//métodos
+		//mï¿½todos
 		public String toString() {
-			return dia + "/" + mes + "/" + año;
+			return dia + "/" + mes + "/" + aÃ±o;
 		}
-		public int getAño() {
-			return this.año;
+		public int getAÃ±o() {
+			return this.aÃ±o;
 		}
-		public void setAño(int año) {
-			this.año = año;
+		public void setAÃ±o(int aÃ±o) {
+			this.aÃ±o = aÃ±o;
 		}
 		public int getDia() {
 			return this.dia;
