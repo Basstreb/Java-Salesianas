@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Class/src"/>
+	<classpathentry kind="src" path="Colecciones/src"/>
+	<classpathentry kind="src" path="Ejercicio_Class/src"/>
+	<classpathentry kind="src" path="Ejercicios_Clase/src"/>
+	<classpathentry kind="src" path="Ejercicios_I.E._2.1/src"/>
+	<classpathentry kind="src" path="Ejercicios_I.E.1.1/src"/>
+	<classpathentry kind="src" path="Herencia_Abstracta_Intefaces/src"/>
+	<classpathentry kind="src" path="JMusic/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_I.E.3.1/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_PROG_Retos/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_PROGUT2y4_I.E.4.1/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_PROGUT6_I.E.6.1/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_PROGUT6_I.E.6.2/src"/>
+	<classpathentry kind="src" path="Lozano_Campano_Daniel_PROGUT6_I.E.6.3/src"/>
+	<classpathentry kind="src" path="Metodos/src"/>
+	<classpathentry kind="src" path="Programacion_Avanzada/src"/>
+	<classpathentry kind="src" path="Programacion_Funcional/src"/>
+	<classpathentry kind="src" path="ProyectoVideoclubDevolucion/src"/>
+	<classpathentry kind="output" path="Class/bin"/>
+</classpath>
